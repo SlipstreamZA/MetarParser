@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.mivek</groupId>
     <artifactId>metarParser</artifactId>
-    <version>2.7.1</version>
+    <version>2.7.1_jdk11</version>
     <packaging>pom</packaging>
     <name>metarParser</name>
     <description>This project is a metar-taf parser.
@@ -44,8 +44,8 @@
     </licenses>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <maven.source.plugin.version>3.2.1</maven.source.plugin.version>
         <maven.javadoc.plugin.version>3.3.1</maven.javadoc.plugin.version>
         <maven.gpg.plugin.version>3.0.1</maven.gpg.plugin.version>
@@ -57,14 +57,10 @@
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <opencsv.version>5.5.2</opencsv.version>
         <pitmp-maven-plugin.version>1.3.7</pitmp-maven-plugin.version>
-        <jacoco.coverage.instruction.minimum>0.98</jacoco.coverage.instruction.minimum>
-        <jacoco.coverage.branch.minimum>0.96</jacoco.coverage.branch.minimum>
-        <jacoco.coverage.complexity.minimum>0.97</jacoco.coverage.complexity.minimum>
         <archunit-junit5.version>0.22.0</archunit-junit5.version>
         <maven-project-info-reports-plugin.version>3.1.2</maven-project-info-reports-plugin.version>
         <maven-site-plugin.version>3.9.1</maven-site-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-        <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
         <pitest-maven.version>1.7.3</pitest-maven.version>
         <checkstyle.version>9.2</checkstyle.version>
@@ -194,114 +190,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
-            </plugin>
-            <!--<plugin>
-                <groupId>eu.stamp-project</groupId>
-                <artifactId>pitmp-maven-plugin</artifactId>
-                <version>${pitmp-maven-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <threads>3</threads>
-                            <targetModules>
-                                <param>metarParser-parsers</param>
-                            </targetModules>
-                            <mutationThreshold>98</mutationThreshold>
-                            <coverageThreshold>99</coverageThreshold>
-                            <excludedClasses>
-                                <param>io.github.mivek.model.*</param>
-                                <param>io.github.mivek.provider.*</param>
-                                <param>io.github.mivek.enums.*</param>
-                                <param>io.github.mivek.internationalization.*</param>
-                            </excludedClasses>
-                            <targetClasses>
-                                <param>io.github.mivek.parser.*</param>
-                                <param>io.github.mivek.command.*</param>
-                            </targetClasses>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin> -->
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${jacoco-maven-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>default-prepare-agent</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>default-report</id>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>default-check</id>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <rule implementation="org.jacoco.maven.RuleConfiguration">
-                                    <element>BUNDLE</element>
-                                    <limits>
-                                        <limit implementation="org.jacoco.report.check.Limit">
-                                            <counter>INSTRUCTION</counter>
-                                            <value>COVEREDRATIO</value>
-                                            <minimum>${jacoco.coverage.instruction.minimum}</minimum>
-                                        </limit>
-                                        <limit implementation="org.jacoco.report.check.Limit">
-                                            <counter>BRANCH</counter>
-                                            <value>COVEREDRATIO</value>
-                                            <minimum>${jacoco.coverage.branch.minimum}</minimum>
-                                        </limit>
-                                        <limit implementation="org.jacoco.report.check.Limit">
-                                            <counter>COMPLEXITY</counter>
-                                            <value>COVEREDRATIO</value>
-                                            <minimum>${jacoco.coverage.complexity.minimum}</minimum>
-                                        </limit>
-                                    </limits>
-                                </rule>
-                            </rules>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${maven-checkstyle-plugin.version}</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.puppycrawl.tools</groupId>
-                        <artifactId>checkstyle</artifactId>
-                        <version>${checkstyle.version}</version>
-                    </dependency>
-                </dependencies>
-                <configuration>
-                    <excludes>*Test.java</excludes>
-                    <configLocation>/checkstyle.xml</configLocation>
-                    <encoding>UTF-8</encoding>
-                    <consoleOutput>true</consoleOutput>
-                    <failsOnError>true</failsOnError>
-                    <linkXRef>false</linkXRef>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>validate</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

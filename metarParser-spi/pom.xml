@@ -5,17 +5,11 @@
     <parent>
         <artifactId>metarParser</artifactId>
         <groupId>io.github.mivek</groupId>
-        <version>2.7.1</version>
+        <version>2.7.1_jdk11</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>metarParser-spi</artifactId>
-
-    <properties>
-        <jacoco.coverage.instruction.minimum>0.45</jacoco.coverage.instruction.minimum>
-        <jacoco.coverage.complexity.minimum>0.5</jacoco.coverage.complexity.minimum>
-        <jacoco.coverage.branch.minimum>0.5</jacoco.coverage.branch.minimum>
-    </properties>
 
     <dependencies>
         <dependency>

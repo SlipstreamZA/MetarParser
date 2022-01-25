@@ -229,7 +229,8 @@ public class Airport {
 
     @Override
     public final boolean equals(final Object obj) {
-        if (obj instanceof Airport airport) {
+        if (obj instanceof Airport) {
+			Airport airport = (Airport)obj;
             return icao.equals(airport.getIcao());
         }
         return false;

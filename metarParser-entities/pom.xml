@@ -5,18 +5,13 @@
     <parent>
         <artifactId>metarParser</artifactId>
         <groupId>io.github.mivek</groupId>
-        <version>2.7.1</version>
+        <version>2.7.1_jdk11</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>metarParser-entities</artifactId>
     <description>Module containing the model of the application.</description>
 
-    <properties>
-        <jacoco.coverage.instruction.minimum>0.71</jacoco.coverage.instruction.minimum>
-        <jacoco.coverage.branch.minimum>0.75</jacoco.coverage.branch.minimum>
-        <jacoco.coverage.complexity.minimum>0.56</jacoco.coverage.complexity.minimum>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>io.github.mivek</groupId>
